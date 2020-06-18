@@ -1,17 +1,11 @@
 package com.example.launchdemo
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
+import androidx.appcompat.app.AppCompatActivity
 import com.orhanobut.logger.Logger
 import kotlinx.coroutines.*
-import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import kotlin.coroutines.CoroutineContext
 import kotlin.system.measureTimeMillis
 
 class MainActivity : AppCompatActivity(){
@@ -22,8 +16,6 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
         runBlocking {
             withContext(Dispatchers.Default) {
                 massiveRun {
